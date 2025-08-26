@@ -16,15 +16,24 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg fixed-top custom-navbar">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="#"
-          ><i class="fas fa-hexagon me-2"></i>Bee-hive</a
-        >
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img
+            src="images/navbar/technopark-logo.png"
+            alt="Technopark Logo"
+            style="
+              height: 40px;
+              width: auto;
+              object-fit: contain;
+              margin-right: 10px;
+            "
+          />
+        </a>
         <button
           class="navbar-toggler"
           type="button"
@@ -35,24 +44,165 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="#amenities">Amenities</a>
+            <li class="nav-item dropdown custom-dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="aboutDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                About us <i class="fa fa-chevron-down small ms-1"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                <li>
+                  <a class="dropdown-item" href="#who-we-are">Who We Are</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#main-building"
+                    >The Main Building</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#future-plans">Future Plans</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#governance-structure"
+                    >Governance Structure</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#our-partners">Our Partners</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#get-in-touch">Get In Touch</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown custom-dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="focusDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Focus Area <i class="fa fa-chevron-down small ms-1"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="focusDropdown">
+                <li>
+                  <a class="dropdown-item" href="#entrepreneurship"
+                    >Entrepreneurship</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#research"
+                    >Research & Commercialization</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#workforce"
+                    >Workforce Development</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#fdi"
+                    >Foreign Direct Investment</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#tech-dev"
+                    >TECH for Development</a
+                  >
+                </li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#perks">Perks</a>
+              <a class="nav-link" href="#projects">Projects</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#benefits">Benefits</a>
+              <a class="nav-link" href="#labs-hubs">Labs and Hubs</a>
+            </li>
+            <li class="nav-item dropdown custom-dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="diasporaDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Diaspora Network <i class="fa fa-chevron-down small ms-1"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="diasporaDropdown">
+                <li>
+                  <a class="dropdown-item" href="#what-is-diaspora"
+                    >What Is Palestine Diaspora Technology Network?</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#diaspora-programs"
+                    >Diaspora Network Programs & Initiatives</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown custom-dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="communityDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Community <i class="fa fa-chevron-down small ms-1"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="communityDropdown">
+                <li>
+                  <a class="dropdown-item" href="#park-life">Park Life</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#activities-events"
+                    >Activities And Events</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#hosted-activities"
+                    >Activities Hosted by Technopark</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#members">Meet Our Members</a>
+                </li>
+                <li><a class="dropdown-item" href="#join-now">Join Now</a></li>
+              </ul>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#rooms">Rooms</a>
+              <a class="nav-link" href="#spaces">Spaces</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#packages">Packages</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
+            <li class="nav-item dropdown custom-dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="mediaDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Media <i class="fa fa-chevron-down small ms-1"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="mediaDropdown">
+                <li>
+                  <a class="dropdown-item" href="#news"
+                    >News and Announcements</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="#videos">Videos</a></li>
+                <li><a class="dropdown-item" href="#blog">Blog</a></li>
+              </ul>
             </li>
           </ul>
         </div>
@@ -60,24 +210,77 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
-      <div class="hero-overlay"></div>
-      <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-lg-8 mx-auto text-center text-white">
-            <h1 class="display-3 fw-bold mb-4">
-              Great ideas need the right environment to thrive
-            </h1>
-            <p class="lead mb-4">
-              Bee-hive is your launchpad. Choose a plan that fuels your ambition
-            </p>
-            <a href="#packages" class="btn btn-warning btn-lg px-5 py-3"
-              >Explore Plans</a
-            >
+    <section
+      id="home"
+      class="hero-section hero-image-section d-flex align-items-center"
+      style="
+        background-image: url('images/hero/bc-image.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 80vh;
+        position: relative;
+      "
+    >
+      <div
+        class="hero-overlay"
+        style="
+          background: rgba(40, 59, 60, 0.45);
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        "
+      ></div>
+      <div class="container position-relative" style="z-index: 2">
+        <div class="row align-items-center">
+          <div class="col-lg-7 col-md-8 col-12 ms-auto">
+            <div class="hero-content text-end pe-lg-5 pe-3">
+              <h1 class="mb-4 text-end">
+                <span class="hero-main-line text-white">A coworking space</span
+                ><br />
+                <span class="hero-to-line text-white">to</span><br />
+                <span class="hero-words-wrapper text-end">
+                  <span class="hero-word hero-word-in">Grow</span>
+                  <span class="hero-word">Innovate</span>
+                  <span class="hero-word">Connect</span>
+                  <span class="hero-word">Create</span>
+                </span>
+              </h1>
+              <div class="hero-btn-row justify-content-end">
+                <a href="#" class="hero-btn book-btn">
+                  <span class="hero-btn-icon"
+                    ><i class="fas fa-calendar-check"></i
+                  ></span>
+                  Book a visit
+                </a>
+                <a href="#" class="hero-btn video-btn">
+                  <span class="hero-btn-icon"><i class="fas fa-play"></i></span>
+                  Watch Video
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
+    <script>
+      // Hero animated words
+      document.addEventListener("DOMContentLoaded", function () {
+        const words = document.querySelectorAll(
+          ".hero-words-wrapper .hero-word"
+        );
+        let current = 0;
+        setInterval(() => {
+          words[current].classList.remove("hero-word-in");
+          words[current].classList.add("hero-word-out");
+          let next = (current + 1) % words.length;
+          words[next].classList.remove("hero-word-out");
+          words[next].classList.add("hero-word-in");
+          current = next;
+        }, 2000);
+      });
+    </script>
 
     <!-- Premium Coworking Amenities -->
     <section id="amenities" class="py-5 bg-light">
@@ -169,33 +372,21 @@
         <div id="perksCarousel" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
-              <img
-                src="/placeholder.svg?height=400&width=800"
-                class="d-block w-100 rounded"
-                alt="Collaboration Space"
-              />
+              <img class="d-block w-100 rounded" alt="Collaboration Space" />
               <div class="carousel-caption d-none d-md-block">
                 <h5>Collaborative Environment</h5>
                 <p>Work alongside innovative minds in our open spaces</p>
               </div>
             </div>
             <div class="carousel-item">
-              <img
-                src="/placeholder.svg?height=400&width=800"
-                class="d-block w-100 rounded"
-                alt="Meeting Rooms"
-              />
+              <img class="d-block w-100 rounded" alt="Meeting Rooms" />
               <div class="carousel-caption d-none d-md-block">
                 <h5>Premium Meeting Rooms</h5>
                 <p>Professional spaces for client meetings and team sessions</p>
               </div>
             </div>
             <div class="carousel-item">
-              <img
-                src="/placeholder.svg?height=400&width=800"
-                class="d-block w-100 rounded"
-                alt="Terrace Access"
-              />
+              <img class="d-block w-100 rounded" alt="Terrace Access" />
               <div class="carousel-caption d-none d-md-block">
                 <h5>Rooftop Terrace</h5>
                 <p>Fresh air and inspiring views for outdoor work sessions</p>
@@ -234,11 +425,7 @@
         <div class="row g-4">
           <div class="col-md-4">
             <div class="benefit-card text-center">
-              <img
-                src="/placeholder.svg?height=200&width=300"
-                class="img-fluid rounded mb-3"
-                alt="Networking"
-              />
+              <img class="img-fluid rounded mb-3" alt="Networking" />
               <h4>Premium Networking</h4>
               <p>
                 Connect with industry leaders, investors, and fellow
@@ -248,11 +435,7 @@
           </div>
           <div class="col-md-4">
             <div class="benefit-card text-center">
-              <img
-                src="/placeholder.svg?height=200&width=300"
-                class="img-fluid rounded mb-3"
-                alt="Mentorship"
-              />
+              <img class="img-fluid rounded mb-3" alt="Mentorship" />
               <h4>Expert Mentorship</h4>
               <p>
                 Access to experienced mentors and business coaches who can guide
@@ -262,11 +445,7 @@
           </div>
           <div class="col-md-4">
             <div class="benefit-card text-center">
-              <img
-                src="/placeholder.svg?height=200&width=300"
-                class="img-fluid rounded mb-3"
-                alt="Funding"
-              />
+              <img class="img-fluid rounded mb-3" alt="Funding" />
               <h4>Funding Opportunities</h4>
               <p>
                 Get connected with investors and learn about funding
@@ -316,25 +495,13 @@
             >
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img
-                    src="/placeholder.svg?height=300&width=500"
-                    class="d-block w-100 rounded"
-                    alt="Meeting Room 1"
-                  />
+                  <img class="d-block w-100 rounded" alt="Meeting Room 1" />
                 </div>
                 <div class="carousel-item">
-                  <img
-                    src="/placeholder.svg?height=300&width=500"
-                    class="d-block w-100 rounded"
-                    alt="Meeting Room 2"
-                  />
+                  <img class="d-block w-100 rounded" alt="Meeting Room 2" />
                 </div>
                 <div class="carousel-item">
-                  <img
-                    src="/placeholder.svg?height=300&width=500"
-                    class="d-block w-100 rounded"
-                    alt="Meeting Room 3"
-                  />
+                  <img class="d-block w-100 rounded" alt="Meeting Room 3" />
                 </div>
               </div>
               <button
@@ -377,25 +544,13 @@
             >
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img
-                    src="/placeholder.svg?height=300&width=500"
-                    class="d-block w-100 rounded"
-                    alt="Conference Room 1"
-                  />
+                  <img class="d-block w-100 rounded" alt="Conference Room 1" />
                 </div>
                 <div class="carousel-item">
-                  <img
-                    src="/placeholder.svg?height=300&width=500"
-                    class="d-block w-100 rounded"
-                    alt="Conference Room 2"
-                  />
+                  <img class="d-block w-100 rounded" alt="Conference Room 2" />
                 </div>
                 <div class="carousel-item">
-                  <img
-                    src="/placeholder.svg?height=300&width=500"
-                    class="d-block w-100 rounded"
-                    alt="Conference Room 3"
-                  />
+                  <img class="d-block w-100 rounded" alt="Conference Room 3" />
                 </div>
               </div>
               <button
@@ -654,46 +809,22 @@
         <div class="gallery-slider-container">
           <div class="gallery-slider" id="gallerySlider">
             <div class="gallery-slide">
-              <img
-                src="/placeholder.svg?height=300&width=400"
-                class="img-fluid rounded"
-                alt="Open Workspace"
-              />
+              <img class="img-fluid rounded" alt="Open Workspace" />
             </div>
             <div class="gallery-slide">
-              <img
-                src="/placeholder.svg?height=300&width=400"
-                class="img-fluid rounded"
-                alt="Café Area"
-              />
+              <img class="img-fluid rounded" alt="Café Area" />
             </div>
             <div class="gallery-slide">
-              <img
-                src="/placeholder.svg?height=300&width=400"
-                class="img-fluid rounded"
-                alt="Innovation Lab"
-              />
+              <img class="img-fluid rounded" alt="Innovation Lab" />
             </div>
             <div class="gallery-slide">
-              <img
-                src="/placeholder.svg?height=300&width=400"
-                class="img-fluid rounded"
-                alt="Entertainment Room"
-              />
+              <img class="img-fluid rounded" alt="Entertainment Room" />
             </div>
             <div class="gallery-slide">
-              <img
-                src="/placeholder.svg?height=300&width=400"
-                class="img-fluid rounded"
-                alt="Terrace"
-              />
+              <img class="img-fluid rounded" alt="Terrace" />
             </div>
             <div class="gallery-slide">
-              <img
-                src="/placeholder.svg?height=300&width=400"
-                class="img-fluid rounded"
-                alt="Private Office"
-              />
+              <img class="img-fluid rounded" alt="Private Office" />
             </div>
           </div>
           <button class="gallery-nav gallery-prev" id="galleryPrev">

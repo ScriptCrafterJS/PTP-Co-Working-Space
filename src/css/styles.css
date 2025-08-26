@@ -1,25 +1,192 @@
+/* Hero Section Redesign */
+.hero-image-section {
+  min-height: 80vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+.hero-main-line {
+  color: #fff;
+  font-size: 5.5rem;
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  text-transform: capitalize;
+}
+.hero-to-line {
+  color: #fff;
+  font-size: 4.5rem;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+.hero-words-wrapper {
+  display: block;
+  position: relative;
+  min-width: 220px;
+  height: 1.2em;
+  margin-top: 0.5em;
+  text-align: right;
+}
+.hero-word {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  transform: translateY(40px) skewX(-20deg);
+  transition: all 0.7s cubic-bezier(.77,0,.18,1);
+  color: #419496;
+  font-size: 5.5rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  text-align: right;
+  text-transform: capitalize;
+}
+.hero-word-in {
+  opacity: 1;
+  transform: translateY(0) skewX(0deg);
+  z-index: 2;
+}
+.hero-btn-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  justify-content: flex-end;
+}
+.hero-content .hero-btn {
+  font-weight: 700;
+  font-size: 1.25rem;
+  border-radius: 0;
+  min-width: 220px;
+  padding: 0.85em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(65,148,150,0.08);
+  border: none;
+  transition: background 0.2s, color 0.2s;
+}
+.hero-content .hero-btn.book-btn {
+  background: #419496;
+  color: #fff;
+}
+.hero-content .hero-btn.book-btn:hover {
+  background: #283b3c;
+  color: #fff;
+}
+.hero-content .hero-btn.video-btn {
+  background: #fff;
+  color: #419496;
+  border: 2px solid #419496;
+}
+.hero-content .hero-btn.video-btn:hover {
+  background: #419496;
+  color: #fff;
+}
+.hero-content .hero-btn .hero-btn-icon {
+  font-size: 1.1em;
+  margin-right: 0.7em;
+  display: flex;
+  align-items: center;
+}
 /* Custom Styles */
 :root {
   --primary-color: #ffc107;
   --secondary-color: #212529;
   --accent-color: #6c757d;
 }
-
 body {
+/* removed orphaned brace */
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
 }
 
 /* Navbar */
-.navbar-brand {
-  font-size: 1.5rem;
+.custom-navbar {
+  background: white !important;
+  box-shadow: 0 2px 12px rgba(40, 59, 60, 0.07);
+  border-bottom: 2px solid #419496;
+}
+
+.custom-navbar .navbar-brand img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.custom-navbar .nav-link {
+  color: #283b3c !important;
+  font-weight: 500;
+  position: relative;
+  padding-right: 1.5rem;
+  padding-left: 1rem;
+  transition: color 0.2s;
+}
+.custom-navbar .nav-link:hover,
+.custom-navbar .nav-link:focus {
+  color: #419496 !important;
+}
+
+.custom-navbar .dropdown-toggle::after {
+  display: none;
+}
+
+.custom-navbar .dropdown-menu {
+  background: #fff;
+  border: none;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 8px 24px rgba(40, 59, 60, 0.10);
+  min-width: 240px;
+  margin-top: 0;
+  padding: 0.5rem 0;
+  left: 0;
+  right: 0;
+  top: 100%;
+}
+
+.custom-navbar .dropdown-item {
+  color: #283b3c;
+  font-weight: 400;
+  padding: 0.75rem 1.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+.custom-navbar .dropdown-item:hover,
+.custom-navbar .dropdown-item:focus {
+  background: #419496;
+  color: #fff;
+}
+
+/* Show dropdown on hover */
+.custom-dropdown:hover > .dropdown-menu {
+  display: block;
+  animation: fadeInDown 0.2s;
+}
+.custom-dropdown .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  z-index: 1000;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-navbar .nav-link .fa-chevron-down {
+  font-size: 0.7em;
+  margin-left: 0.2em;
+  color: #419496;
 }
 
 /* Hero Section */
 .hero-section {
   height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/placeholder.svg?height=800&width=1200")
-    center / cover;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  /* Add your own hero background image here if needed */
   display: flex;
   align-items: center;
   position: relative;
@@ -64,7 +231,8 @@ body {
 /* Parallax Section */
 .parallax-section {
   height: 60vh;
-  background: url("/placeholder.svg?height=600&width=1200") center / cover fixed;
+  background: #e9ecef;
+  /* Add your own parallax background image here if needed */
   display: flex;
   align-items: center;
   position: relative;
