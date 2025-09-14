@@ -316,11 +316,11 @@ body {
   border: none;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 8px 24px rgba(40, 59, 60, 0.10);
-  min-width: 240px;
+  min-width: auto;
+  width: max-content;
   margin-top: 0;
   padding: 0.5rem 0;
   left: 0;
-  right: 0;
   top: 100%;
 }
 
@@ -329,6 +329,7 @@ body {
   font-weight: 400;
   padding: 0.75rem 1.5rem;
   transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
 }
 .custom-navbar .dropdown-item:hover,
 .custom-navbar .dropdown-item:focus {
@@ -345,9 +346,9 @@ body {
   display: none;
   position: absolute;
   left: 0;
-  right: 0;
   top: 100%;
   z-index: 1000;
+  width: max-content;
 }
 
 @keyframes fadeInDown {
@@ -395,18 +396,10 @@ body {
 
 /* Benefit Cards */
 .benefit-card {
-  background: white;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
   height: 100%;
 }
-
-.benefit-card:hover {
-  transform: translateY(-5px);
-}
-
 /* Parallax Section */
 .parallax-section {
   height: 60vh;
@@ -536,6 +529,112 @@ body {
 /* Smooth Scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Additional Perks Carousel Styles */
+.perks-slide-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 500px;
+  overflow: hidden;
+}
+
+.perks-carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.perks-title-overlay {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+.perks-title-overlay h3 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.perks-image-description {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  text-align: center;
+}
+
+.perks-image-description h4 {
+  margin: 0;
+  font-size: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+#perksCarousel .carousel-control-prev,
+#perksCarousel .carousel-control-next {
+  width: 5%;
+  background: rgba(40, 59, 60, 0.3);
+  border-radius: 0 50px 50px 0;
+}
+
+#perksCarousel .carousel-control-next {
+  border-radius: 50px 0 0 50px;
+}
+
+#perksCarousel .carousel-control-prev:hover,
+#perksCarousel .carousel-control-next:hover {
+  background: rgba(40, 59, 60, 0.6);
+}
+
+#perksCarousel .carousel-control-prev-icon,
+#perksCarousel .carousel-control-next-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* Responsive adjustments for perks carousel */
+@media (max-width: 768px) {
+  .perks-slide-container {
+    height: 50vh;
+    min-height: 400px;
+  }
+  
+  .perks-title-overlay {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+  
+  .perks-title-overlay h3 {
+    font-size: 1.3rem;
+  }
+  
+  .perks-image-description h4 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .perks-slide-container {
+    height: 45vh;
+    min-height: 350px;
+  }
+  
+  .perks-title-overlay {
+    top: 1rem;
+    left: 1rem;
+  }
+  
+  .perks-title-overlay h3 {
+    font-size: 1.2rem;
+  }
+  
+  .perks-image-description h4 {
+    font-size: 1.5rem;
+  }
 }
 
 /* Custom Scrollbar */
