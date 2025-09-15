@@ -1,0 +1,24 @@
+{
+  "name": "co-working-space",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ScriptCrafterJS/PTP-Co-Working-Space.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ScriptCrafterJS/PTP-Co-Working-Space/issues"
+  },
+  "homepage": "https://github.com/ScriptCrafterJS/PTP-Co-Working-Space#readme",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}

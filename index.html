@@ -264,23 +264,6 @@
         </div>
       </div>
     </section>
-    <script>
-      // Hero animated words
-      document.addEventListener("DOMContentLoaded", function () {
-        const words = document.querySelectorAll(
-          ".hero-words-wrapper .hero-word"
-        );
-        let current = 0;
-        setInterval(() => {
-          words[current].classList.remove("hero-word-in");
-          words[current].classList.add("hero-word-out");
-          let next = (current + 1) % words.length;
-          words[next].classList.remove("hero-word-out");
-          words[next].classList.add("hero-word-in");
-          current = next;
-        }, 2000);
-      });
-    </script>
 
     <!-- Location Section -->
     <section class="py-4" style="background-color: #419496">
@@ -322,7 +305,7 @@
         </div>
         <div class="row g-4">
           <div class="col-md-4 text-center">
-            <div class="amenity-card p-4">
+            <div class="amenity-card animate-on-scroll p-4">
               <i class="fas fa-wifi fa-3x text-warning mb-3"></i>
               <h4 class="text-white">High-Speed Wi-Fi</h4>
               <p class="text-white">
@@ -331,7 +314,7 @@
             </div>
           </div>
           <div class="col-md-4 text-center">
-            <div class="amenity-card p-4">
+            <div class="amenity-card animate-on-scroll p-4">
               <i class="fas fa-coffee fa-3x text-warning mb-3"></i>
               <h4 class="text-white">Premium Café</h4>
               <p class="text-white">
@@ -340,7 +323,7 @@
             </div>
           </div>
           <div class="col-md-4 text-center">
-            <div class="amenity-card p-4">
+            <div class="amenity-card animate-on-scroll p-4">
               <i class="fas fa-users fa-3x text-warning mb-3"></i>
               <h4 class="text-white">Networking Events</h4>
               <p class="text-white">
@@ -349,7 +332,7 @@
             </div>
           </div>
           <div class="col-md-4 text-center">
-            <div class="amenity-card p-4">
+            <div class="amenity-card animate-on-scroll p-4">
               <i class="fas fa-print fa-3x text-warning mb-3"></i>
               <h4 class="text-white">Printing Services</h4>
               <p class="text-white">
@@ -358,7 +341,7 @@
             </div>
           </div>
           <div class="col-md-4 text-center">
-            <div class="amenity-card p-4">
+            <div class="amenity-card animate-on-scroll p-4">
               <i class="fas fa-gamepad fa-3x text-warning mb-3"></i>
               <h4 class="text-white">Entertainment Room</h4>
               <p class="text-white">
@@ -367,7 +350,7 @@
             </div>
           </div>
           <div class="col-md-4 text-center">
-            <div class="amenity-card p-4">
+            <div class="amenity-card animate-on-scroll p-4">
               <i class="fas fa-cube fa-3x text-warning mb-3"></i>
               <h4 class="text-white">Innovation Labs</h4>
               <p class="text-white">
@@ -418,24 +401,12 @@
             <div class="carousel-item">
               <div class="perks-slide-container">
                 <img
-                  src="src/images/additional-perks/meeting-room-1.jpeg"
+                  src="src/images/additional-perks/collaborative-workspace.jpeg"
                   class="d-block w-100 perks-carousel-img"
                   alt="Collaborative Workspace"
                 />
                 <div class="perks-image-description">
                   <h4 class="text-white fw-bold">Collaborative Workspace</h4>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="perks-slide-container">
-                <img
-                  src="src/images/additional-perks/meeting-room-1.jpeg"
-                  class="d-block w-100 perks-carousel-img"
-                  alt="Innovation Hub"
-                />
-                <div class="perks-image-description">
-                  <h4 class="text-white fw-bold">Innovation Hub</h4>
                 </div>
               </div>
             </div>
@@ -471,8 +442,12 @@
         </div>
         <div class="row g-4">
           <div class="col-md-4">
-            <div class="benefit-card text-center">
-              <img class="img-fluid rounded mb-3" alt="Networking" />
+            <div class="benefit-card animate-on-scroll text-center">
+              <img
+                class="img-fluid rounded mb-3"
+                alt="Networking"
+                src="src/images/benifits/connect.jpg"
+              />
               <h4>Premium Networking</h4>
               <p>
                 Connect with industry leaders, investors, and fellow
@@ -481,8 +456,12 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="benefit-card text-center">
-              <img class="img-fluid rounded mb-3" alt="Mentorship" />
+            <div class="benefit-card animate-on-scroll text-center">
+              <img
+                class="img-fluid rounded mb-3"
+                alt="Mentorship"
+                src="src/images/benifits/training.jpg"
+              />
               <h4>Expert Mentorship</h4>
               <p>
                 Access to experienced mentors and business coaches who can guide
@@ -491,8 +470,12 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="benefit-card text-center">
-              <img class="img-fluid rounded mb-3" alt="Funding" />
+            <div class="benefit-card animate-on-scroll text-center">
+              <img
+                class="img-fluid rounded mb-3"
+                alt="Funding"
+                src="src/images/benifits/reward.jpg"
+              />
               <h4>Funding Opportunities</h4>
               <p>
                 Get connected with investors and learn about funding
@@ -532,41 +515,37 @@
               seating, and professional ambiance perfect for client meetings,
               team sessions, and important calls.
             </p>
-            <a href="#" class="btn btn-warning btn-lg">Book A Room</a>
           </div>
           <div class="col-lg-6">
             <div
               id="meetingRoomsCarousel"
               class="carousel slide"
               data-bs-ride="carousel"
+              data-bs-interval="3000"
             >
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img class="d-block w-100 rounded" alt="Meeting Room 1" />
+                  <img
+                    class="d-block w-100 rounded"
+                    alt="Meeting Room 1"
+                    src="src/images/meeting-rooms/meeting-room-1.jpeg"
+                  />
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100 rounded" alt="Meeting Room 2" />
+                  <img
+                    class="d-block w-100 rounded"
+                    alt="Meeting Room 2"
+                    src="src/images/meeting-rooms/meeting-room-2.jpeg"
+                  />
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100 rounded" alt="Meeting Room 3" />
+                  <img
+                    class="d-block w-100 rounded"
+                    alt="Meeting Room 3"
+                    src="src/images/meeting-rooms/meeting-room-3.jpeg"
+                  />
                 </div>
               </div>
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#meetingRoomsCarousel"
-                data-bs-slide="prev"
-              >
-                <span class="carousel-control-prev-icon"></span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#meetingRoomsCarousel"
-                data-bs-slide="next"
-              >
-                <span class="carousel-control-next-icon"></span>
-              </button>
             </div>
           </div>
         </div>
@@ -581,17 +560,21 @@
               comfortable seating for larger team meetings, workshops, and
               corporate events.
             </p>
-            <a href="#" class="btn btn-warning btn-lg">Book A Room</a>
           </div>
           <div class="col-lg-6 order-lg-1">
             <div
               id="conferenceRoomsCarousel"
               class="carousel slide"
               data-bs-ride="carousel"
+              data-bs-interval="3500"
             >
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img class="d-block w-100 rounded" alt="Conference Room 1" />
+                  <img
+                    class="d-block w-100 rounded"
+                    alt="Conference Room 1"
+                    src="src/images/parallax/conference-room.jpg"
+                  />
                 </div>
                 <div class="carousel-item">
                   <img class="d-block w-100 rounded" alt="Conference Room 2" />
@@ -600,22 +583,6 @@
                   <img class="d-block w-100 rounded" alt="Conference Room 3" />
                 </div>
               </div>
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#conferenceRoomsCarousel"
-                data-bs-slide="prev"
-              >
-                <span class="carousel-control-prev-icon"></span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#conferenceRoomsCarousel"
-                data-bs-slide="next"
-              >
-                <span class="carousel-control-next-icon"></span>
-              </button>
             </div>
           </div>
         </div>
@@ -636,7 +603,7 @@
         <div class="row g-4">
           <!-- 2 Weeks Plan -->
           <div class="col-lg-4">
-            <div class="package-card h-100">
+            <div class="package-card animate-on-scroll h-100">
               <div class="package-header text-center p-4">
                 <h3 class="fw-bold">2 Weeks</h3>
                 <div class="price-section">
@@ -684,7 +651,7 @@
 
           <!-- 1 Month Plan -->
           <div class="col-lg-4">
-            <div class="package-card h-100 featured">
+            <div class="package-card animate-on-scroll h-100 featured">
               <div class="package-header text-center p-4">
                 <span class="badge bg-success mb-2">Most Popular</span>
                 <h3 class="fw-bold">1 Month</h3>
@@ -750,7 +717,7 @@
 
           <!-- Innovator Package -->
           <div class="col-lg-4">
-            <div class="package-card h-100">
+            <div class="package-card animate-on-scroll h-100">
               <div class="package-header text-center p-4">
                 <h3 class="fw-bold">Innovator Package</h3>
                 <div class="price-section">
@@ -1016,6 +983,6 @@
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Custom JS -->
-    <script src="script.js"></script>
+    <script src="src/script.js"></script>
   </body>
 </html>

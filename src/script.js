@@ -1,21 +1,27 @@
 $(document).ready(() => {
-  // Smooth scrolling for navigation links
-  $('a[href^="#"]').on("click", function (event) {
-    var target = $(this.getAttribute("href"));
-    if (target.length) {
-      event.preventDefault();
-      $("html, body")
-        .stop()
-        .animate(
-          {
-            scrollTop: target.offset().top - 70,
-          },
-          1000
-        );
-    }
-  });
+  // ===== ESSENTIAL JAVASCRIPT ONLY =====
+  // (Everything else moved to CSS for better performance)
 
-  // Navbar background change on scroll
+  // Hero animated words
+  const initHeroWordAnimation = () => {
+    const words = document.querySelectorAll(".hero-words-wrapper .hero-word");
+    if (words.length > 0) {
+      let current = 0;
+      setInterval(() => {
+        words[current].classList.remove("hero-word-in");
+        words[current].classList.add("hero-word-out");
+        let next = (current + 1) % words.length;
+        words[next].classList.remove("hero-word-out");
+        words[next].classList.add("hero-word-in");
+        current = next;
+      }, 2000);
+    }
+  };
+
+  // Initialize hero animation
+  initHeroWordAnimation();
+
+  // Navbar background change on scroll (simplified)
   $(window).scroll(() => {
     if ($(window).scrollTop() > 50) {
       $(".navbar").addClass("navbar-scrolled");
@@ -24,12 +30,12 @@ $(document).ready(() => {
     }
   });
 
-  // Gallery Slider
+  // Gallery Slider (requires JavaScript for complex logic)
   let currentSlide = 0;
   const slides = $(".gallery-slide");
   const totalSlides = slides.length;
-  let slidesToShow = 3; // Changed from const to let
-  const maxSlide = totalSlides - slidesToShow;
+  let slidesToShow = 3;
+  let maxSlide = totalSlides - slidesToShow;
 
   function updateSlider() {
     const translateX = -(currentSlide * (100 / slidesToShow));
@@ -69,59 +75,32 @@ $(document).ready(() => {
     } else {
       slidesToShow = 3;
     }
-    currentSlide = 0;
+    maxSlide = totalSlides - slidesToShow;
+    currentSlide = Math.min(currentSlide, maxSlide);
     updateSlider();
   }
 
   $(window).resize(updateSlidesToShow);
   updateSlidesToShow();
 
-  // Animate elements on scroll
-  $(window).scroll(() => {
-    $(".amenity-card, .benefit-card, .package-card").each(function () {
-      var elementTop = $(this).offset().top;
-      var elementBottom = elementTop + $(this).outerHeight();
-      var viewportTop = $(window).scrollTop();
-      var viewportBottom = viewportTop + $(window).height();
+  // Scroll animations trigger (lightweight IntersectionObserver alternative)
+  const animateElements = () => {
+    $(".animate-on-scroll").each(function () {
+      const elementTop = $(this).offset().top;
+      const elementBottom = elementTop + $(this).outerHeight();
+      const viewportTop = $(window).scrollTop();
+      const viewportBottom = viewportTop + $(window).height();
 
-      if (elementBottom > viewportTop && elementTop < viewportBottom) {
-        $(this).addClass("animate__animated animate__fadeInUp");
+      if (elementBottom > viewportTop && elementTop < viewportBottom - 100) {
+        $(this).addClass("animate");
       }
     });
-  });
+  };
 
-  // Package card hover effects
-  $(".package-card").hover(
-    function () {
-      $(this)
-        .find(".btn")
-        .addClass("btn-outline-warning")
-        .removeClass("btn-warning");
-    },
-    function () {
-      $(this)
-        .find(".btn")
-        .addClass("btn-warning")
-        .removeClass("btn-outline-warning");
-    }
-  );
+  $(window).scroll(animateElements);
+  animateElements(); // Initial check
 
-  // Form validation for email buttons
-  $('a[href^="mailto:"]').click((e) => {
-    // You can add custom email handling here
-    console.log("Email button clicked");
-  });
-
-  // Parallax effect for the parallax section
-  $(window).scroll(() => {
-    var scrolled = $(window).scrollTop();
-    var parallax = $(".parallax-section");
-    var speed = scrolled * 0.5;
-
-    parallax.css("background-position", "center " + speed + "px");
-  });
-
-  // Add loading animation
+  // Body loaded state
   $(window).on("load", () => {
     $("body").addClass("loaded");
   });
@@ -133,25 +112,3 @@ $(document).ready(() => {
     }
   });
 });
-
-// Add CSS for navbar scrolled state
-$("<style>")
-  .prop("type", "text/css")
-  .html(
-    `
-        .navbar-scrolled {
-            background-color: rgba(33, 37, 41, 0.95) !important;
-            backdrop-filter: blur(10px);
-        }
-        
-        .loaded {
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
-        }
-        
-        body {
-            opacity: 0;
-        }
-    `
-  )
-  .appendTo("head");

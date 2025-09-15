@@ -1,3 +1,156 @@
+/* ===== CSS OPTIMIZATION REPLACEMENTS FOR JQUERY ===== */
+
+/* Body loading animation - replaces jQuery loading animation */
+body {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+/* Navbar scroll state - replaces jQuery scroll detection */
+.navbar {
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+}
+
+.navbar-scrolled {
+  background-color: rgba(33, 37, 41, 0.95) !important;
+  backdrop-filter: blur(10px);
+}
+
+/* Smooth scrolling - replaces jQuery smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll-triggered animations - replaces jQuery scroll animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced card hover effects - replaces jQuery hover effects */
+.package-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.package-card .btn {
+  transition: all 0.3s ease;
+}
+
+.package-card:hover .btn-warning {
+  background-color: transparent;
+  color: #ffc107;
+  border-color: #ffc107;
+}
+
+/* Benefit and amenity card animations */
+.benefit-card, .amenity-card {
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.benefit-card.animate, .amenity-card.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.benefit-card:hover, .amenity-card:hover {
+  transform: translateY(-3px);
+}
+
+/* Parallax effect using CSS only */
+.parallax-section {
+  background-image: url('../images/parallax/conference-room.jpg'), linear-gradient(135deg, #419496 0%, #283b3c 100%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-position 0.1s ease-out;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+/* Gallery slider CSS animations */
+.gallery-slider {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Mobile menu auto-close enhancement */
+@media (max-width: 991px) {
+  .navbar-collapse.show .navbar-nav .nav-link {
+    transition: color 0.2s ease;
+  }
+  
+  .navbar-collapse.show .navbar-nav .nav-link:hover {
+    color: #419496 !important;
+  }
+}
+
+/* Enhanced button transitions */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Hero button specific animations */
+.hero-btn {
+  transition: all 0.3s ease;
+}
+
+.hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced dropdown animations */
+.dropdown-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-menu,
+.dropdown.show .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ===== END CSS OPTIMIZATIONS ===== */
+
 /* Amenities Parallax Section */
 .amenities-parallax {
   background-image: url('../images/coworking-amenities/background.png');
@@ -400,23 +553,27 @@ body {
   border-radius: 10px;
   height: 100%;
 }
-/* Parallax Section */
-.parallax-section {
-  height: 60vh;
-  background: #e9ecef;
-  /* Add your own parallax background image here if needed */
-  display: flex;
-  align-items: center;
-  position: relative;
-}
 
+.benefit-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  object-position: center;
+}
+/* Parallax Section */
 .parallax-overlay {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 193, 7, 0.8);
+  background: rgba(40, 59, 60, 0.4);
+  z-index: 1;
+}
+
+.parallax-section .container {
+  position: relative;
+  z-index: 2;
 }
 
 /* Package Cards */
@@ -513,8 +670,9 @@ body {
   }
 
   .parallax-section {
-    height: 40vh;
+    min-height: 40vh;
     background-attachment: scroll;
+    background-position: center center;
   }
 
   .gallery-slide {
@@ -635,6 +793,40 @@ html {
   .perks-image-description h4 {
     font-size: 1.5rem;
   }
+}
+
+/* Meeting & Conference Rooms Carousel Styles */
+#meetingRoomsCarousel,
+#conferenceRoomsCarousel {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#meetingRoomsCarousel .carousel-inner,
+#conferenceRoomsCarousel .carousel-inner {
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+#meetingRoomsCarousel img,
+#conferenceRoomsCarousel img {
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Auto-scroll timing for meeting room carousels */
+#meetingRoomsCarousel .carousel-item,
+#conferenceRoomsCarousel .carousel-item {
+  transition: transform 0.8s ease-in-out;
+}
+
+/* Hide carousel controls for meeting rooms */
+#meetingRoomsCarousel .carousel-control-prev,
+#meetingRoomsCarousel .carousel-control-next,
+#conferenceRoomsCarousel .carousel-control-prev,
+#conferenceRoomsCarousel .carousel-control-next {
+  display: none;
 }
 
 /* Custom Scrollbar */
