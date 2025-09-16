@@ -1,6 +1,3 @@
-/* ===== CSS OPTIMIZATION REPLACEMENTS FOR JQUERY ===== */
-
-/* Body loading animation - replaces jQuery loading animation */
 body {
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
@@ -9,8 +6,6 @@ body {
 body.loaded {
   opacity: 1;
 }
-
-/* Navbar scroll state - replaces jQuery scroll detection */
 .navbar {
   transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
 }
@@ -64,8 +59,8 @@ html {
 
 .package-card:hover .btn-warning {
   background-color: transparent;
-  color: #ffc107;
-  border-color: #ffc107;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
 }
 
 /* Benefit and amenity card animations */
@@ -86,7 +81,7 @@ html {
 
 /* Parallax effect using CSS only */
 .parallax-section {
-  background-image: url('../images/parallax/conference-room.jpg'), linear-gradient(135deg, #419496 0%, #283b3c 100%);
+  background-image: url('../images/parallax/conference-room.jpg'), linear-gradient(135deg, #419496 0%, #0f5286 100%);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -290,7 +285,7 @@ html {
   color: #fff;
 }
 .hero-content .hero-btn.book-btn:hover {
-  background: #283b3c;
+  background: var(--secondary-color);
   color: #fff;
   text-decoration: none;
 }
@@ -424,9 +419,16 @@ html {
 }
 /* Custom Styles */
 :root {
-  --primary-color: #ffc107;
-  --secondary-color: #212529;
+  --primary-color: #419496;
+  --secondary-color: #0f5286;
+  --primary-light: #5ba8aa;
+  --primary-dark: #2d7072;
+  --secondary-light: #1a6ba8;
+  --secondary-dark: #0a3a5f;
   --accent-color: #6c757d;
+  --text-dark: #212529;
+  --text-light: #6c757d;
+  --border-color: #dee2e6;
 }
 body {
 /* removed orphaned brace */
@@ -448,7 +450,7 @@ body {
 }
 
 .custom-navbar .nav-link {
-  color: #283b3c !important;
+  color: var(--secondary-color) !important;
   font-weight: 500;
   position: relative;
   padding-right: 1.5rem;
@@ -478,7 +480,7 @@ body {
 }
 
 .custom-navbar .dropdown-item {
-  color: #283b3c;
+  color: var(--secondary-color);
   font-weight: 400;
   padding: 0.75rem 1.5rem;
   transition: background 0.2s, color 0.2s;
@@ -567,7 +569,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(40, 59, 60, 0.4);
+  background: rgba(15, 82, 134, 0.4);
   z-index: 1;
 }
 
@@ -583,6 +585,8 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .package-card:hover {
@@ -596,12 +600,55 @@ body {
 
 .package-header {
   background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.package-header h3 {
+  margin-bottom: 1rem;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.price-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .price {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--secondary-color);
+  color: #212529;
+  line-height: 1.2;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.price-period {
+  font-size: 1rem;
+  color: #6c757d;
+  margin-top: 0.2rem;
+}
+
+.package-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-body ul {
+  flex-grow: 1;
+}
+
+.package-body ul li {
+  padding: 0.4rem 0;
+  font-size: 0.95rem;
 }
 
 .student-offer {
@@ -611,8 +658,18 @@ body {
 .student-price {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--primary-color);
+  color: rgba(var(--bs-warning-rgb), var(--bs-bg-opacity)) !important;
   margin-top: 0.5rem;
+}
+
+.perfect-for {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.package-footer {
+  margin-top: auto;
 }
 
 .food-policy-card {
@@ -625,16 +682,7 @@ body {
   overflow: hidden;
 }
 
-.gallery-slider {
-  display: flex;
-  transition: transform 0.5s ease;
-  gap: 1rem;
-}
-
-.gallery-slide {
-  min-width: calc(33.333% - 0.67rem);
-  flex-shrink: 0;
-}
+/* Gallery slider styles - now handled by new uniform sizing styles below */
 
 .gallery-nav {
   position: absolute;
@@ -829,20 +877,109 @@ html {
   display: none;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Footer Link Hover Effects */
+footer a {
+  transition: text-decoration 0.3s ease, color 0.3s ease;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+footer a:hover {
+  text-decoration: underline !important;
+  color: var(--primary-color) !important;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 4px;
+/* Gallery Small Images - Uniform Size, No Rounded Corners, No Gaps */
+.gallery-img-small {
+  width: 350px !important;
+  height: 260px !important;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0 !important;
+  display: block;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #e0a800;
+.gallery-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  min-width: 350px;
+  max-width: 350px;
+  flex-shrink: 0;
+  background: none;
+}
+
+.gallery-slider {
+  display: flex;
+  transition: transform 0.5s ease;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.gallery-slider-container {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  max-width: 1400px; /* 4 images × 350px = 1400px max */
+  margin: 0 auto;
+}
+
+/* Responsive gallery adjustments */
+@media (max-width: 768px) {
+  .gallery-img-small {
+    width: 280px !important;
+    height: 200px !important;
+    border-radius: 0 !important;
+  }
+  
+  .gallery-slide {
+    min-width: 280px;
+    max-width: 280px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .gallery-slider {
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .gallery-slider-container {
+    max-width: 840px; /* 3 images × 280px = 840px max */
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery-img-small {
+    width: 250px !important;
+    height: 180px !important;
+    border-radius: 0 !important;
+  }
+  
+  .gallery-slide {
+    min-width: 250px;
+    max-width: 250px;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .gallery-slider {
+    gap: 0;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .gallery-slider-container {
+    max-width: 500px; /* 2 images × 250px = 500px max */
+  }
+}
+
+/* Hide gallery navigation arrows */
+.gallery-nav {
+  display: none !important;
 }

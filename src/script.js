@@ -21,6 +21,18 @@ $(document).ready(() => {
   // Initialize hero animation
   initHeroWordAnimation();
 
+  // Update current year in footer
+  const updateCurrentYear = () => {
+    const currentYear = new Date().getFullYear();
+    const yearElement = document.getElementById("currentYear");
+    if (yearElement) {
+      yearElement.textContent = currentYear;
+    }
+  };
+
+  // Initialize year update
+  updateCurrentYear();
+
   // Navbar background change on scroll (simplified)
   $(window).scroll(() => {
     if ($(window).scrollTop() > 50) {
@@ -30,33 +42,21 @@ $(document).ready(() => {
     }
   });
 
-  // Gallery Slider (requires JavaScript for complex logic)
+  // Gallery Slider with Auto-Play (no manual controls needed)
   let currentSlide = 0;
   const slides = $(".gallery-slide");
   const totalSlides = slides.length;
-  let slidesToShow = 3;
+  let slidesToShow = 4; // Show 4 images on desktop
+  let slideWidth = 350;
   let maxSlide = totalSlides - slidesToShow;
 
   function updateSlider() {
-    const translateX = -(currentSlide * (100 / slidesToShow));
-    $(".gallery-slider").css("transform", `translateX(${translateX}%)`);
+    // Use exact pixel-based translation with current slideWidth
+    const translateX = -(currentSlide * slideWidth);
+    $(".gallery-slider").css("transform", `translateX(${translateX}px)`);
   }
 
-  $("#galleryNext").click(() => {
-    if (currentSlide < maxSlide) {
-      currentSlide++;
-      updateSlider();
-    }
-  });
-
-  $("#galleryPrev").click(() => {
-    if (currentSlide > 0) {
-      currentSlide--;
-      updateSlider();
-    }
-  });
-
-  // Auto-play gallery slider
+  // Auto-play gallery slider - continuous loop
   setInterval(() => {
     if (currentSlide < maxSlide) {
       currentSlide++;
@@ -64,22 +64,24 @@ $(document).ready(() => {
       currentSlide = 0;
     }
     updateSlider();
-  }, 5000);
+  }, 3000); // Auto-slide every 3 seconds
 
   // Responsive gallery slider
   function updateSlidesToShow() {
-    if ($(window).width() <= 768) {
-      slidesToShow = 1;
-    } else if ($(window).width() <= 992) {
-      slidesToShow = 2;
+    if ($(window).width() <= 576) {
+      slidesToShow = 2; // Show 2 images on mobile
+      slideWidth = 250; // Match CSS: 250px image
+    } else if ($(window).width() <= 768) {
+      slidesToShow = 3; // Show 3 images on tablet
+      slideWidth = 280; // Match CSS: 280px image
     } else {
-      slidesToShow = 3;
+      slidesToShow = 4; // Show 4 images on desktop
+      slideWidth = 350; // Match CSS: 350px image
     }
-    maxSlide = totalSlides - slidesToShow;
+    maxSlide = Math.max(0, totalSlides - slidesToShow);
     currentSlide = Math.min(currentSlide, maxSlide);
     updateSlider();
   }
-
   $(window).resize(updateSlidesToShow);
   updateSlidesToShow();
 
